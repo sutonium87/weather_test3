@@ -1,0 +1,95 @@
+{{#each list}}
+  <li class='days-list__item'>
+    <h3 class='days-list__day-of-the-week'>
+      {{Day}}
+    </h3>
+    <h4 class='days-list__date'>{{DayNum}} {{Month}}</h4>
+    <img
+      src='{{icon.icon}}'
+      alt='{{icon.iconDescription}}'
+      class='days-list__img'
+    />
+    <div class='days-list__temperature-block'>
+      <div class='days-list__min days-list__min-max'>
+        <p class='days-list__title'>
+          min
+        </p>
+        <p
+          class='days-list__value days-list__value--degrees'
+        >{{temp.TempMin}}</p>
+      </div>
+      <i class='days-list__line days-list__line--mobile'></i>
+      <i class='days-list__line days-list__line--tablet_desktop'></i>
+      <div class='days-list__min-max'>
+        <p class='days-list__title'>
+          max
+        </p>
+        <p
+          class='days-list__value days-list__value--degrees'
+        >{{temp.TempMax}}</p>
+      </div>
+    </div>
+    <button class='days-list__more-btn' type='button' data-day='{{DayNum}}'>
+      more info
+    </button>
+  </li>
+{{/each}}
+{{!-- This is a Handlebars template used for rendering a list of weather information for multiple days:
+
+1. `{{#each list}} ... {{/each}}`:
+   - This is a Handlebars block helper used to loop through an array named `list`.
+   - For each element in the `list` array, the code inside the `{{#each}} ... {{/each}}` block will be executed.
+
+2. `<li class="days-list__item"> ... </li>`:
+   - This is an HTML list item element (`<li>`) with a class of `days-list__item`.
+   - This element represents a single weather forecast item for a specific day.
+
+3. `<h3 class="days-list__day-of-the-week">{{Day}}</h3>`:
+   - This is a level-3 heading (`<h3>`) with a class of `days-list__day-of-the-week`.
+   - The `{{Day}}` expression inside the curly braces is a Handlebars placeholder that will be replaced with the value of the `Day` property from the data for the current day.
+
+4. `<h4 class="days-list__date">{{DayNum}} {{Month}}</h4>`:
+   - This is a level-4 heading (`<h4>`) with a class of `days-list__date`.
+   - The `{{DayNum}}` and `{{Month}}` expressions inside the curly braces are Handlebars placeholders that will be replaced with the values of the `DayNum` and `Month` properties from the data for the current day.
+
+5. `<img src="{{icon.icon}}" alt="{{icon.iconDescription}}" class="days-list__img">`:
+   - This is an image element (`<img>`) with a class of `days-list__img`.
+   - The `src` attribute of the image is set to `{{icon.icon}}`, which will be replaced with the value of the `icon.icon` property from the data for the current day.
+   - The `alt` attribute of the image is set to `{{icon.iconDescription}}`, which will be replaced with the value of the `icon.iconDescription` property from the data for the current day.
+
+6. `<div class="days-list__temperature-block"> ... </div>`:
+   - This is a `<div>` element with a class of `days-list__temperature-block`.
+   - This contains temperature information for the current day, including the minimum and maximum temperatures.
+
+7. `<div class="days-list__min days-list__min-max"> ... </div>`:
+   - This is a `<div>` element with classes of `days-list__min` and `days-list__min-max`.
+   - It contains the minimum temperature information for the current day.
+
+8. `<p class="days-list__title">min</p>`:
+   - This is a paragraph element (`<p>`) with a class of `days-list__title`.
+   - It displays the text "min."
+
+9. `<p class="days-list__value days-list__value--degrees">{{temp.TempMin}}</p>`:
+   - This is another paragraph element (`<p>`) with classes of `days-list__value` and `days-list__value--degrees`.
+   - It displays the value of the minimum temperature, taken from the `temp.TempMin` property of the data for the current day.
+
+10. `<i class="days-list__line days-list__line--mobile "></i>` and `<i class="days-list__line days-list__line--tablet_desktop "></i>`:
+    - These are `<i>` elements with classes of `days-list__line` and `days-list__line--mobile` or `days-list__line--tablet_desktop`.
+    - They appear to be used for styling purposes, possibly to create a visual separator between the minimum and maximum temperature information on different devices (mobile and tablet/desktop).
+
+11. `<div class="days-list__min-max"> ... </div>`:
+    - This is another `<div>` element with a class of `days-list__min-max`.
+    - It contains the maximum temperature information for the current day.
+
+12. `<p class="days-list__title">max</p>`:
+    - This is a paragraph element (`<p>`) with a class of `days-list__title`.
+    - It displays the text "max."
+
+13. `<p class="days-list__value days-list__value--degrees">{{temp.TempMax}}</p>`:
+    - This is another paragraph element (`<p>`) with classes of `days-list__value` and `days-list__value--degrees`.
+    - It displays the value of the maximum temperature, taken from the `temp.TempMax` property of the data for the current day.
+
+14. `<button class="days-list__more-btn" type="button" data-day="{{DayNum}}">more info</button>`:
+    - This is a button element (`<button>`) with a class of `days-list__more-btn`.
+    - It serves as a "more info" button related to the weather forecast item for the current day.
+    - The `data-day="{{DayNum}}"` attribute is set to the value of the --}}

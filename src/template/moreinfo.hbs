@@ -1,0 +1,43 @@
+{{#each this}}
+<li class="timeWeather">
+    <p class="timeWeather__time">{{time}}</p>
+    <p class="timeWeather__temp">
+        <img src="{{icon}}" alt="{{iconDescription}}" class="timeWeather__temp-icon">
+        <span>{{temp}} &#176;</span>
+    </p>
+    <ul class="timeWeather__data">
+        <li class="timeWeather__pressure">{{pressure}} mm</li>
+        <li class="timeWeather__humidity">{{humidity}}%</li>
+        <li class="timeWeather__wind">{{speed}} m/s</li>
+    </ul>
+</li>
+{{/each}}
+
+{{!-- This is a Handlebars template used for rendering weather information for multiple time periods. Handlebars is a templating language that allows to generate HTML dynamically by inserting data into the template.
+
+Let's break down the code step by step:
+
+1. `{{#each this}} ... {{/each}}`:
+   - This is a Handlebars block helper used to loop through an array of data (in this case, the context data represented by `this`).
+   - For each element in the array, the code inside the `{{#each}} ... {{/each}}` block will be executed.
+
+2. `<li class="timeWeather"> ... </li>`:
+   - This is an HTML list item element (`<li>`) with a class of `timeWeather`.
+   - This element represents a single time period's weather information.
+
+3. `<p class="timeWeather__time">{{time}}</p>`:
+   - This is a paragraph element (`<p>`) with a class of `timeWeather__time`.
+   - The `{{time}}` expression inside the curly braces is a Handlebars placeholder that will be replaced with the value of the `time` property from the data for the current time period.
+
+4. `<p class="timeWeather__temp"> ... </p>`:
+   - This is another paragraph element (`<p>`) with a class of `timeWeather__temp`.
+   - Inside this paragraph, there is an image element (`<img>`) that displays an icon representing the weather condition. The `src` attribute of the image is set to `{{icon}}`, which will be replaced with the value of the `icon` property from the data for the current time period.
+   - The `alt` attribute of the image is set to `{{iconDescription}}`, which will be replaced with the value of the `iconDescription` property from the data for the current time period.
+   - After the image, there is a `<span>` element that displays the temperature value. The `{{temp}}` expression inside the curly braces will be replaced with the value of the `temp` property from the data for the current time period. The `&#176;` represents the degree symbol.
+
+5. `<ul class="timeWeather__data"> ... </ul>`:
+   - This is an unordered list element (`<ul>`) with a class of `timeWeather__data`.
+   - Inside this list, there are three list item elements (`<li>`) that display additional weather data: pressure, humidity, and wind speed.
+   - The values of these data properties (`pressure`, `humidity`, and `speed`) are represented by the corresponding Handlebars placeholders (`{{pressure}}`, `{{humidity}}`, and `{{speed}}`).
+
+Overall, this Handlebars template is designed to render weather information for each time period in the provided data array. It dynamically creates HTML elements based on the data provided, displaying the time, weather icon, temperature, pressure, humidity, and wind speed for each time period. The actual data to be rendered will be supplied when using this template with the appropriate context containing an array of weather information objects. --}}
